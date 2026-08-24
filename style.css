@@ -1,0 +1,287 @@
+/* ==========================================================================
+   Manan Patel — portfolio styles
+   Design tokens live in :root. Change a value there and it updates everywhere.
+   ========================================================================== */
+
+:root {
+  /* ---- Colour ---- */
+  --paper:    #EDF1F1;   /* page background — cool pale slate */
+  --card:     #F7F9F9;   /* raised surfaces */
+  --ink:      #131C1B;   /* primary text */
+  --ink-soft: #4C5B59;   /* secondary text */
+  --rule:     #C4D0CE;   /* hairlines */
+  --accent:   #0E6E6B;   /* petrol teal — links, active states */
+  --signal:   #B85C13;   /* amber — status dot + TODO markers only */
+
+  /* ---- Type ---- */
+  --display: 'Archivo', system-ui, sans-serif;
+  --body:    'IBM Plex Sans', system-ui, sans-serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+
+  /* ---- Layout ---- */
+  --max:  1080px;
+  --rail: 150px;          /* width of the left section-label rail */
+  --gap:  clamp(1.5rem, 4vw, 3rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #101817; --card: #16211F; --ink: #E6ECEB;
+    --ink-soft: #96A5A3; --rule: #2C3A38; --accent: #4FBFB8; --signal: #E08A3C;
+  }
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; }
+body, h1, h2, h3, p, ul, figure { margin: 0; padding: 0; }
+ul { list-style: none; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap); }
+
+/* ==========================================================================
+   Top bar
+   ========================================================================== */
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--paper);                                    /* fallback */
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.topbar__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; height: 54px;
+}
+.brand {
+  font-family: var(--mono); font-size: .74rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--ink);
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.topnav { display: flex; gap: 1.4rem; }
+.topnav a {
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+.topnav a:hover { color: var(--accent); text-decoration: none; }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 5vw, 4rem); }
+
+.eyebrow {
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ink-soft);
+  display: flex; align-items: center; gap: .55rem; margin-bottom: 1.6rem;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--signal); flex: none;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--signal) 60%, transparent);
+  animation: pulse 2.6s ease-out infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--signal) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 7px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 7.2vw, 5rem);
+  font-weight: 700;
+  font-stretch: 112%;
+  line-height: .96;
+  letter-spacing: -.03em;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.hero__lede {
+  margin-top: 1.5rem; max-width: 54ch;
+  font-size: clamp(1rem, 1.6vw, 1.13rem); color: var(--ink-soft);
+}
+.hero__lede strong { color: var(--ink); font-weight: 600; }
+
+/* ---- Signature: the readout cluster ---- */
+.readout {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--rule); background: var(--card);
+}
+.readout div {
+  padding: 1.1rem 1rem 1rem;
+  border-right: 1px solid var(--rule);
+}
+.readout div:last-child { border-right: 0; }
+.readout b {
+  display: block;
+  font-family: var(--display); font-weight: 700; font-stretch: 118%;
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1;
+  letter-spacing: -.02em; font-variant-numeric: tabular-nums;
+}
+.readout span {
+  display: block; margin-top: .5rem;
+  font-family: var(--mono); font-size: .63rem; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--ink-soft); line-height: 1.35;
+}
+
+/* ==========================================================================
+   Sections — label rail on the left, content on the right
+   ========================================================================== */
+.section { padding: clamp(2.5rem, 5vw, 4rem) 0; border-top: 1px solid var(--rule); }
+.section__grid { display: grid; grid-template-columns: var(--rail) 1fr; gap: 2rem; }
+.section__label {
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ink-soft);
+  position: sticky; top: 78px; align-self: start;
+}
+
+/* ==========================================================================
+   Project rows
+   ========================================================================== */
+.project { padding: 1.75rem 0; border-bottom: 1px solid var(--rule); }
+.project:first-child { padding-top: 0; }
+.project:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.project__head {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  justify-content: space-between; gap: .5rem 1rem;
+}
+.project h3 {
+  font-family: var(--display); font-weight: 700; font-stretch: 108%;
+  font-size: clamp(1.15rem, 2.2vw, 1.42rem); letter-spacing: -.015em;
+  line-height: 1.15;
+}
+.project__role {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); white-space: nowrap;
+}
+.project p { margin-top: .7rem; max-width: 62ch; color: var(--ink-soft); }
+
+.stack { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .95rem; }
+.stack li {
+  margin: 0 .4rem .4rem 0;   /* fallback where flex gap is unsupported */
+  font-family: var(--mono); font-size: .66rem; letter-spacing: .05em;
+  padding: .18rem .5rem; border: 1px solid var(--rule);
+  color: var(--ink-soft); background: var(--card);
+}
+
+/* The gauge row — the page's signature detail */
+.metrics {
+  display: flex; flex-wrap: wrap; gap: 1.75rem;
+  margin-top: 1.15rem; padding-top: 1rem;
+  border-top: 1px dashed var(--rule);
+}
+.metrics div { min-width: 74px; margin-right: 1.75rem; }
+.metrics b {
+  display: block;
+  font-family: var(--display); font-weight: 700; font-stretch: 118%;
+  font-size: 1.32rem; line-height: 1; letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+.metrics span {
+  display: block; margin-top: .38rem;
+  font-family: var(--mono); font-size: .6rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+/* Unfilled metric — deliberately loud so you can't ship it half-done */
+.todo { color: var(--signal) !important; }
+.todo::after { content: '?'; }
+
+.links { display: flex; flex-wrap: wrap; gap: 1.1rem; margin-top: 1.1rem; }
+.links a {
+  font-family: var(--mono); font-size: .69rem; letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.links a::after { content: ' \2197'; }
+
+/* ==========================================================================
+   Experience rows
+   ========================================================================== */
+.role { padding: 1.3rem 0; border-bottom: 1px solid var(--rule); }
+.role:first-child { padding-top: 0; }
+.role:last-child { border-bottom: 0; padding-bottom: 0; }
+.role__head {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  justify-content: space-between; gap: .3rem 1rem;
+}
+.role h3 {
+  font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: -.005em;
+}
+.role__when {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .09em;
+  color: var(--ink-soft); white-space: nowrap;
+}
+.role__what {
+  font-family: var(--mono); font-size: .69rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--accent); margin-top: .28rem;
+}
+.role p { margin-top: .5rem; max-width: 62ch; color: var(--ink-soft); font-size: .94rem; }
+
+/* ==========================================================================
+   About + contact
+   ========================================================================== */
+.prose p { max-width: 62ch; color: var(--ink-soft); }
+.prose p + p { margin-top: .95rem; }
+
+.contact { display: flex; flex-wrap: wrap; gap: .6rem 2.5rem; }
+.contact div { min-width: 150px; margin-right: 2.5rem; }
+.contact span {
+  display: block; font-family: var(--mono); font-size: .62rem;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--ink-soft);
+  margin-bottom: .25rem;
+}
+.contact a { font-size: .96rem; word-break: break-word; }
+
+.foot {
+  border-top: 1px solid var(--rule); padding: 1.5rem 0 3rem;
+  font-family: var(--mono); font-size: .66rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+
+/* ==========================================================================
+   Load reveal — the only entrance motion on the page
+   ========================================================================== */
+/* Content is visible by default. Motion is added only when it's welcome and
+   supported, so nothing can ever be stranded at opacity 0. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(10px); animation: rise .6s cubic-bezier(.2,.7,.3,1) forwards; }
+  .reveal:nth-child(2) { animation-delay: .07s; }
+  .reveal:nth-child(3) { animation-delay: .14s; }
+  .reveal:nth-child(4) { animation-delay: .21s; }
+  html { scroll-behavior: smooth; }
+}
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+@media (max-width: 720px) {
+  .section__grid { grid-template-columns: 1fr; gap: 1.1rem; }
+  .section__label { position: static; }
+  .readout { grid-template-columns: repeat(2, 1fr); }
+  .readout div:nth-child(2) { border-right: 0; }
+  .readout div:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+  .topnav { gap: 1rem; }
+  .metrics { gap: 1.2rem; }
+}
+@media (max-width: 420px) {
+  .topnav a:not(:last-child) { display: none; }
+}
