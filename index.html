@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============ EDIT: page title + description (shows in Google & link previews) ============ -->
+<title>Manan Patel — Security &amp; ML Engineering</title>
+<meta name="description" content="M.S. Computer Science at Binghamton University. Detection engineering, computer vision, and on-device machine learning.">
+<meta name="author" content="Manan Patel">
+
+<!-- Link preview card (LinkedIn, Slack, iMessage) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Manan Patel — Security &amp; ML Engineering">
+<meta property="og:description" content="M.S. Computer Science at Binghamton University. Detection engineering, computer vision, and on-device machine learning.">
+<meta property="og:url" content="https://USERNAME.github.io/">
+<meta name="theme-color" content="#EDF1F1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="#top">Manan Patel</a>
+    <nav class="topnav">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="resume.pdf">Résumé</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="dot"></span> Available May 2027 · Binghamton, NY</p>
+
+    <!-- EDIT: your one-line thesis. Keep it short and true. -->
+    <h1 class="reveal">I build systems that notice things.</h1>
+
+    <p class="hero__lede reveal">
+      M.S. Computer Science at <strong>Binghamton University</strong>. I spent a year writing
+      detection logic for a SOC watching cloud, OT, and endpoint traffic — now I build the
+      other half of that problem: models that see, small enough to run on a microcontroller.
+    </p>
+
+    <!-- SIGNATURE: the readout cluster. Four facts, no more. -->
+    <div class="readout reveal">
+      <div><b>4.00</b><span>Graduate GPA</span></div>
+      <div><b>15</b><span>Detection rules shipped</span></div>
+      <div><b>7</b><span>Systems integrated</span></div>
+      <div><b>2 yrs</b><span>Security engineering</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WORK ====================
+     To add a project: copy one <article class="project"> block and edit it.
+     Any metric you haven't measured yet: put class="todo" on the <b> so it
+     shows up in amber with a "?" — a visible reminder not to ship it empty.
+================================================== -->
+<section class="section" id="work">
+  <div class="wrap section__grid">
+    <p class="section__label">Selected work</p>
+    <div>
+
+      <article class="project">
+        <div class="project__head">
+          <h3>Talk2Breathe — “Breezy”</h3>
+          <p class="project__role">Project lead</p>
+        </div>
+        <p>
+          A child-safe conversational agent for smoking prevention. Full voice loop: Whisper
+          transcribes, Llama reasons through Groq, Orpheus speaks back — behind a FastAPI service
+          on Cloud Run. I own the architecture, repo standards, and review across the team.
+        </p>
+        <ul class="stack">
+          <li>Python</li><li>FastAPI</li><li>Llama / Groq</li><li>Whisper</li><li>GCP Cloud Run</li><li>Docker</li>
+        </ul>
+        <div class="metrics">
+          <div><b class="todo"></b><span>Median latency</span></div>
+          <div><b class="todo"></b><span>Test participants</span></div>
+          <div><b class="todo"></b><span>Contributors</span></div>
+        </div>
+        <p class="links"><a href="#">Repository</a><a href="#">Write-up</a></p>
+      </article>
+
+      <article class="project">
+        <div class="project__head">
+          <h3>Real-time waste detection on Meta Quest 3</h3>
+          <p class="project__role">Solo</p>
+        </div>
+        <p>
+          An on-device pipeline running headset camera capture through neural inference into a live
+          Unity overlay. The hard part isn't the model — it's holding a usable frame rate on
+          standalone XR hardware with no offload.
+        </p>
+        <ul class="stack">
+          <li>Python</li><li>Computer vision</li><li>Unity</li><li>Quest 3</li>
+        </ul>
+        <div class="metrics">
+          <div><b class="todo"></b><span>mAP</span></div>
+          <div><b class="todo"></b><span>Inference ms</span></div>
+          <div><b class="todo"></b><span>Frames / sec</span></div>
+        </div>
+        <p class="links"><a href="#">Repository</a><a href="#">Demo video</a></p>
+      </article>
+
+      <article class="project">
+        <div class="project__head">
+          <h3>Edge inference on the MAX78000</h3>
+          <p class="project__role">Solo</p>
+        </div>
+        <p>
+          Deploying convolutional networks to the on-chip CNN accelerator on Analog Devices'
+          MAX78000FTHR. Everything runs at the edge, inside a memory and power budget that makes
+          every layer a negotiation.
+        </p>
+        <ul class="stack">
+          <li>C</li><li>CNN accelerator</li><li>Embedded</li><li>Quantization</li>
+        </ul>
+        <div class="metrics">
+          <div><b class="todo"></b><span>Accuracy</span></div>
+          <div><b class="todo"></b><span>Inference ms</span></div>
+          <div><b class="todo"></b><span>mW per inference</span></div>
+        </div>
+        <p class="links"><a href="#">Repository</a></p>
+      </article>
+
+      <article class="project">
+        <div class="project__head">
+          <h3>Manan's Authenticator</h3>
+          <p class="project__role">Solo</p>
+        </div>
+        <p>
+          A self-hosted TOTP client built to RFC 6238, because I wanted to know exactly where my
+          seeds live. AES-256-GCM vault, PBKDF2 key derivation, WebAuthn biometric unlock, QR
+          enrolment — a Manifest V3 extension for Chrome, Edge, and Brave.
+        </p>
+        <ul class="stack">
+          <li>JavaScript</li><li>Manifest V3</li><li>Web Crypto API</li><li>WebAuthn</li><li>RFC 6238</li>
+        </ul>
+        <div class="metrics">
+          <div><b>AES-256</b><span>GCM vault</span></div>
+          <div><b>PBKDF2</b><span>Key derivation</span></div>
+          <div><b>0</b><span>Network calls</span></div>
+        </div>
+        <p class="links"><a href="#">Repository</a></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EXPERIENCE ==================== -->
+<section class="section" id="experience">
+  <div class="wrap section__grid">
+    <p class="section__label">Experience</p>
+    <div>
+
+      <div class="role">
+        <div class="role__head">
+          <h3>Research Foundation for SUNY</h3>
+          <p class="role__when">Jan 2026 — Present</p>
+        </div>
+        <p class="role__what">Research Project Assistant</p>
+        <p>Maintaining and hardening SUNY web infrastructure — triaging and remediating software and system vulnerabilities across the environment.</p>
+      </div>
+
+      <div class="role">
+        <div class="role__head">
+          <h3>Accelleron Industries</h3>
+          <p class="role__when">Jul 2024 — Jul 2025</p>
+        </div>
+        <p class="role__what">Security Operations Analyst, L1</p>
+        <p>Primary responder for a hybrid estate spanning Azure Cloud, operational technology, and enterprise endpoints. Wrote 15 KQL detection rules against Sentinel log pipelines and built Python automation to replace a manual OSINT reconnaissance workflow.</p>
+      </div>
+
+      <div class="role">
+        <div class="role__head">
+          <h3>Forenzy Networks</h3>
+          <p class="role__when">Dec 2023 — Jun 2024</p>
+        </div>
+        <p class="role__what">Cybersecurity Research Intern</p>
+        <p>Architected a real-time threat intelligence platform that pulled seven open-source systems — Wazuh, TheHive, Cortex, MISP, Grafana, Elasticsearch, Logstash — into one automated ingestion and alerting pipeline.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section class="section" id="about">
+  <div class="wrap section__grid">
+    <p class="section__label">About</p>
+    <div class="prose">
+      <p>
+        I came into computer science through defense — a year on a SOC floor teaches you that most
+        systems fail quietly, and that the interesting work is in noticing before anyone else does.
+      </p>
+      <p>
+        These days I'm mostly on the other side of that: training models, shrinking them until they
+        fit on hardware that has no business running them, and caring a lot about latency. The
+        instinct is the same. Build the thing that watches, then make it fast enough to matter.
+      </p>
+      <p>
+        Currently at Binghamton University, finishing an M.S. in Computer Science in May 2027 and
+        looking for full-time engineering work starting then.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="section" id="contact">
+  <div class="wrap section__grid">
+    <p class="section__label">Contact</p>
+    <div class="contact">
+      <div><span>Email</span><a href="mailto:mananpatel5921@gmail.com">mananpatel5921@gmail.com</a></div>
+      <div><span>GitHub</span><a href="https://github.com/USERNAME">github.com/USERNAME</a></div>
+      <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/manan-patel-502901212/">in/manan-patel</a></div>
+      <div><span>Résumé</span><a href="resume.pdf">Download PDF</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">Manan Patel · Binghamton, NY · Last updated August 2026</div>
+</footer>
+
+</body>
+</html>
