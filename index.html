@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- ============ EDIT: page title + description (shows in Google & link previews) ============ -->
-<title>Manan Patel — Security &amp; ML Engineering</title>
-<meta name="description" content="M.S. Computer Science at Binghamton University. Detection engineering, computer vision, and on-device machine learning.">
+<title>Manan Patel — Security, AI &amp; Software Engineering</title>
+<meta name="description" content="M.S. Computer Science at Binghamton University. Detection engineering, applied ML, and on-device computer vision — backed by 30+ certifications and 445 LeetCode solves.">
 <meta name="author" content="Manan Patel">
 
 <!-- Link preview card (LinkedIn, Slack, iMessage) -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Manan Patel — Security &amp; ML Engineering">
-<meta property="og:description" content="M.S. Computer Science at Binghamton University. Detection engineering, computer vision, and on-device machine learning.">
-<meta property="og:url" content="https://USERNAME.github.io/">
+<meta property="og:title" content="Manan Patel — Security, AI &amp; Software Engineering">
+<meta property="og:description" content="M.S. Computer Science at Binghamton University. Detection engineering, applied ML, and on-device computer vision.">
+<meta property="og:url" content="https://mananvijaypatel.github.io/">
 <meta name="theme-color" content="#EDF1F1">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,9 +29,10 @@
     <a class="brand" href="#top">Manan Patel</a>
     <nav class="topnav">
       <a href="#work">Work</a>
+      <a href="#toolkit">Toolkit</a>
       <a href="#experience">Experience</a>
-      <a href="#about">About</a>
-      <a href="resume.pdf">Résumé</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -47,32 +48,42 @@
     <h1 class="reveal">I build systems that notice things.</h1>
 
     <p class="hero__lede reveal">
-      M.S. Computer Science at <strong>Binghamton University</strong>. I spent a year writing
+      M.S. Computer Science at <strong>Binghamton University</strong>. I spent two years writing
       detection logic for a SOC watching cloud, OT, and endpoint traffic — now I build the
       other half of that problem: models that see, small enough to run on a microcontroller.
+      Security instincts, an ML habit, and enough software engineering to ship both.
     </p>
 
     <!-- SIGNATURE: the readout cluster. Four facts, no more. -->
     <div class="readout reveal">
       <div><b>4.00</b><span>Graduate GPA</span></div>
-      <div><b>15</b><span>Detection rules shipped</span></div>
-      <div><b>7</b><span>Systems integrated</span></div>
-      <div><b>2 yrs</b><span>Security engineering</span></div>
+      <div><b>+12%</b><span>Detection posture gain</span></div>
+      <div><b>445</b><span>LeetCode solves</span></div>
+      <div><b>30+</b><span>Certifications</span></div>
     </div>
   </div>
 </section>
 
 <!-- ==================== WORK ====================
      To add a project: copy one <article class="project"> block and edit it.
-     Any metric you haven't measured yet: put class="todo" on the <b> so it
-     shows up in amber with a "?" — a visible reminder not to ship it empty.
+     data-track marks which track(s) it belongs to (security / ai / software) —
+     the filter buttons read that attribute. Any metric you haven't measured
+     yet: put class="todo" on the <b> so it shows up in amber with a "?" — a
+     visible reminder not to ship it empty.
 ================================================== -->
 <section class="section" id="work">
   <div class="wrap section__grid">
     <p class="section__label">Selected work</p>
     <div>
 
-      <article class="project">
+      <div class="filters" role="group" aria-label="Filter projects by track">
+        <button type="button" class="filter is-active" data-filter="all">All</button>
+        <button type="button" class="filter" data-filter="security">Security</button>
+        <button type="button" class="filter" data-filter="ai">AI / ML</button>
+        <button type="button" class="filter" data-filter="software">Software</button>
+      </div>
+
+      <article class="project" data-track="ai software">
         <div class="project__head">
           <h3>Talk2Breathe — “Breezy”</h3>
           <p class="project__role">Project lead</p>
@@ -93,7 +104,7 @@
         <p class="links"><a href="#">Repository</a><a href="#">Write-up</a></p>
       </article>
 
-      <article class="project">
+      <article class="project" data-track="ai">
         <div class="project__head">
           <h3>Real-time waste detection on Meta Quest 3</h3>
           <p class="project__role">Solo</p>
@@ -114,7 +125,7 @@
         <p class="links"><a href="#">Repository</a><a href="#">Demo video</a></p>
       </article>
 
-      <article class="project">
+      <article class="project" data-track="ai">
         <div class="project__head">
           <h3>Edge inference on the MAX78000</h3>
           <p class="project__role">Solo</p>
@@ -135,7 +146,7 @@
         <p class="links"><a href="#">Repository</a></p>
       </article>
 
-      <article class="project">
+      <article class="project" data-track="security software">
         <div class="project__head">
           <h3>Manan's Authenticator</h3>
           <p class="project__role">Solo</p>
@@ -155,6 +166,68 @@
         </div>
         <p class="links"><a href="#">Repository</a></p>
       </article>
+
+      <article class="project" data-track="security">
+        <div class="project__head">
+          <h3>Real-time threat intelligence platform</h3>
+          <p class="project__role">Solo</p>
+        </div>
+        <p>
+          Unified six open-source security tools — Wazuh, TheHive, Cortex, MISP, Grafana, and the
+          ELK stack — into one ingestion-to-alert pipeline, so a SOC analyst gets one dashboard
+          instead of six browser tabs. Built and shipped during my internship at Forenzy Networks.
+        </p>
+        <ul class="stack">
+          <li>Wazuh</li><li>TheHive / Cortex</li><li>MISP</li><li>ELK Stack</li><li>Grafana</li><li>CentOS</li>
+        </ul>
+        <div class="metrics">
+          <div><b class="todo"></b><span>Mean time to alert</span></div>
+          <div><b class="todo"></b><span>Sources ingested</span></div>
+          <div><b>6</b><span>Tools unified</span></div>
+        </div>
+        <p class="links"><a href="#">Repository</a></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TOOLKIT ====================
+     Skills grouped by track instead of one flat list, so a reviewer scanning
+     for one of the three tracks doesn't have to sift the other two.
+================================================== -->
+<section class="section" id="toolkit">
+  <div class="wrap section__grid">
+    <p class="section__label">Toolkit</p>
+    <div class="tracks">
+
+      <div class="track">
+        <h3 class="track__head">Security</h3>
+        <ul class="taglist">
+          <li>Azure Sentinel</li><li>KQL</li><li>Microsoft Defender for Endpoint</li>
+          <li>Zscaler</li><li>Wazuh</li><li>TheHive / Cortex</li><li>MISP</li>
+          <li>DFIR</li><li>Incident response</li><li>OSINT (theHarvester, SpiderFoot)</li>
+          <li>VAPT</li>
+        </ul>
+      </div>
+
+      <div class="track">
+        <h3 class="track__head">AI / ML</h3>
+        <ul class="taglist">
+          <li>PyTorch</li><li>Computer vision</li><li>Whisper</li><li>Llama / Groq</li>
+          <li>CNN accelerators</li><li>Model quantization</li><li>Unity</li>
+          <li>BigQuery ML</li><li>Vertex AI</li>
+        </ul>
+      </div>
+
+      <div class="track">
+        <h3 class="track__head">Software &amp; infra</h3>
+        <ul class="taglist">
+          <li>Python</li><li>C / C++</li><li>JavaScript</li><li>FastAPI</li>
+          <li>Docker</li><li>GCP Cloud Run</li><li>Kubernetes</li><li>Linux (Ubuntu, Kali)</li>
+          <li>MySQL / PostgreSQL</li><li>Firebase</li><li>Git</li>
+        </ul>
+      </div>
 
     </div>
   </div>
@@ -181,7 +254,12 @@
           <p class="role__when">Jul 2024 — Jul 2025</p>
         </div>
         <p class="role__what">Security Operations Analyst, L1</p>
-        <p>Primary responder for a hybrid estate spanning Azure Cloud, operational technology, and enterprise endpoints. Wrote 15 KQL detection rules against Sentinel log pipelines and built Python automation to replace a manual OSINT reconnaissance workflow.</p>
+        <p>
+          Primary responder for a hybrid estate spanning Azure Cloud, operational technology, and
+          enterprise endpoints. Wrote 15 KQL detection rules against Sentinel log pipelines,
+          lifting detection posture by 12%, and built Python automation that replaced a manual
+          OSINT reconnaissance workflow across theHarvester and SpiderFoot.
+        </p>
       </div>
 
       <div class="role">
@@ -190,7 +268,78 @@
           <p class="role__when">Dec 2023 — Jun 2024</p>
         </div>
         <p class="role__what">Cybersecurity Research Intern</p>
-        <p>Architected a real-time threat intelligence platform that pulled seven open-source systems — Wazuh, TheHive, Cortex, MISP, Grafana, Elasticsearch, Logstash — into one automated ingestion and alerting pipeline.</p>
+        <p>Architected a real-time threat intelligence platform that pulled seven open-source systems — Wazuh, TheHive, Cortex, MISP, Grafana, Elasticsearch, Logstash — into one automated ingestion and alerting pipeline, and ran a full VAPT engagement on a production web app.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CREDENTIALS ====================
+     Curated badges, not all 32 — the rest live on Credly, one click away.
+     LeetCode bar reflects live counts; update the numbers and widths together
+     if they drift (see comment on .coding__bar below).
+================================================== -->
+<section class="section" id="credentials">
+  <div class="wrap section__grid">
+    <p class="section__label">Credentials</p>
+    <div>
+
+      <div class="badges">
+        <a class="badge" href="https://www.credly.com/badges/917a8d26-d071-4035-babd-673bf2785afd/public_url" target="_blank" rel="noopener">
+          <img src="https://images.credly.com/images/2030e43f-8003-4d4b-9630-847add403c87/image.png" alt="" loading="lazy">
+          <div><b>Certified in Cybersecurity (CC)</b><span>ISC2 · Jun 2024</span></div>
+        </a>
+        <a class="badge" href="https://www.credly.com/badges/b564fa76-9474-45c4-96d9-b5abfe0ffc8a/public_url" target="_blank" rel="noopener">
+          <img src="https://images.credly.com/images/aca1437b-f28a-4917-97f3-ee427e1a6bea/blob" alt="" loading="lazy">
+          <div><b>Zscaler Digital Transformation Administrator</b><span>Zscaler · Mar 2025</span></div>
+        </a>
+        <a class="badge" href="https://www.credly.com/badges/43225082-6efe-4533-bfe4-9200229b5513/public_url" target="_blank" rel="noopener">
+          <img src="https://images.credly.com/images/0bf0f2da-a699-4c82-82e2-56dcf1f2e1c7/image.png" alt="" loading="lazy">
+          <div><b>Google Cybersecurity Professional Certificate</b><span>Google · Coursera · Sep 2025</span></div>
+        </a>
+        <a class="badge" href="https://www.credly.com/badges/80d1300c-2c55-4ac7-9aee-8dad3ecf86a4/public_url" target="_blank" rel="noopener">
+          <img src="https://images.credly.com/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png" alt="" loading="lazy">
+          <div><b>Ethical Hacker</b><span>Cisco · May 2024</span></div>
+        </a>
+        <a class="badge" href="https://www.credly.com/badges/4e59bb1e-75df-4fac-a8f6-91908293ea1f/public_url" target="_blank" rel="noopener">
+          <img src="https://images.credly.com/images/fb287d09-3194-42f1-81a7-313ab1a2af4a/blob" alt="" loading="lazy">
+          <div><b>API Security in the World of DevSecOps</b><span>APIsec University · Aug 2025</span></div>
+        </a>
+        <a class="badge" href="https://www.credly.com/badges/e541229c-0b8f-4b52-9cff-5714b298b28a/public_url" target="_blank" rel="noopener">
+          <img src="https://images.credly.com/images/a4dd891f-7bf5-4938-8241-50dc81e8cc00/image.png" alt="" loading="lazy">
+          <div><b>Network Support and Security</b><span>Cisco · Apr 2024</span></div>
+        </a>
+        <a class="badge" href="https://www.credly.com/badges/7aa5b685-1c30-45d2-851e-7ffdaf8260e3/public_url" target="_blank" rel="noopener">
+          <img src="https://images.credly.com/images/746b172c-bdae-4bd9-b29b-eecfc9ad3577/image.png" alt="" loading="lazy">
+          <div><b>Cloud Architecture: Design, Implement &amp; Manage</b><span>Google Cloud · Sep 2025</span></div>
+        </a>
+        <a class="badge" href="https://www.credly.com/badges/d22e4482-df88-49af-8783-1bc1c01f4858/public_url" target="_blank" rel="noopener">
+          <img src="https://images.credly.com/images/073a27aa-c3d6-44b5-875f-906191666d70/image.png" alt="" loading="lazy">
+          <div><b>Create ML Models with BigQuery ML</b><span>Google Cloud · Sep 2025</span></div>
+        </a>
+        <a class="badge badge--more" href="https://www.credly.com/users/manan-patel.8029d3bc" target="_blank" rel="noopener">
+          <div><b>+24 more</b><span>Google Cloud &amp; Cisco badges on Credly ↗</span></div>
+        </a>
+      </div>
+
+      <div class="coding">
+        <div class="coding__head">
+          <h3>LeetCode</h3>
+          <a href="https://leetcode.com/mananvp__59/" target="_blank" rel="noopener">mananvp__59 ↗</a>
+        </div>
+        <!-- widths are pct of 445 total: easy 144 (32%), medium 225 (51%), hard 76 (17%) -->
+        <div class="coding__bar" role="img" aria-label="144 easy, 225 medium, 76 hard problems solved">
+          <span class="seg seg--easy" style="width:32%"></span>
+          <span class="seg seg--med" style="width:51%"></span>
+          <span class="seg seg--hard" style="width:17%"></span>
+        </div>
+        <div class="coding__stats">
+          <div><b>445</b><span>Solved</span></div>
+          <div><b>144</b><span>Easy</span></div>
+          <div><b>225</b><span>Medium</span></div>
+          <div><b>76</b><span>Hard</span></div>
+        </div>
       </div>
 
     </div>
@@ -203,7 +352,7 @@
     <p class="section__label">About</p>
     <div class="prose">
       <p>
-        I came into computer science through defense — a year on a SOC floor teaches you that most
+        I came into computer science through defense — two years on a SOC floor teaches you that most
         systems fail quietly, and that the interesting work is in noticing before anyone else does.
       </p>
       <p>
@@ -213,7 +362,8 @@
       </p>
       <p>
         Currently at Binghamton University, finishing an M.S. in Computer Science in May 2027 and
-        looking for full-time engineering work starting then.
+        looking for full-time engineering work starting then. Student of the Year, B.E. 2020–2024,
+        and Best Final Year Industry Project at my previous university — old habits.
       </p>
     </div>
   </div>
@@ -225,9 +375,10 @@
     <p class="section__label">Contact</p>
     <div class="contact">
       <div><span>Email</span><a href="mailto:mananpatel5921@gmail.com">mananpatel5921@gmail.com</a></div>
-      <div><span>GitHub</span><a href="https://github.com/USERNAME">github.com/USERNAME</a></div>
+      <div><span>GitHub</span><a href="https://github.com/mananvijaypatel">github.com/mananvijaypatel</a></div>
       <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/manan-patel-502901212/">in/manan-patel</a></div>
-      <div><span>Résumé</span><a href="resume.pdf">Download PDF</a></div>
+      <div><span>LeetCode</span><a href="https://leetcode.com/mananvp__59/">mananvp__59</a></div>
+      <div><span>Credly</span><a href="https://www.credly.com/users/manan-patel.8029d3bc">manan-patel</a></div>
     </div>
   </div>
 </section>
@@ -235,8 +386,28 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap">Manan Patel · Binghamton, NY · Last updated August 2026</div>
+  <div class="wrap">Manan Patel · Binghamton, NY · Last updated September 2026</div>
 </footer>
+
+<script>
+// Project track filter — progressive enhancement only. Every project is
+// visible with no JS; this just narrows the list on click.
+(function () {
+  var buttons = document.querySelectorAll('.filter');
+  var projects = document.querySelectorAll('.project');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      var filter = btn.getAttribute('data-filter');
+      projects.forEach(function (p) {
+        var tracks = (p.getAttribute('data-track') || '').split(' ');
+        p.hidden = filter !== 'all' && tracks.indexOf(filter) === -1;
+      });
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

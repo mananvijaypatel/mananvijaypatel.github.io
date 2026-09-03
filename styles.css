@@ -152,11 +152,25 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 
 /* ==========================================================================
+   Project filters
+   ========================================================================== */
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
+.filter {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-soft);
+  background: transparent; border: 1px solid var(--rule);
+  padding: .4rem .8rem; cursor: pointer;
+}
+.filter:hover { color: var(--ink); border-color: var(--ink-soft); }
+.filter.is-active { color: var(--paper); background: var(--accent); border-color: var(--accent); }
+
+/* ==========================================================================
    Project rows
    ========================================================================== */
 .project { padding: 1.75rem 0; border-bottom: 1px solid var(--rule); }
 .project:first-child { padding-top: 0; }
 .project:last-child { border-bottom: 0; padding-bottom: 0; }
+.project[hidden] { display: none; }
 
 .project__head {
   display: flex; flex-wrap: wrap; align-items: baseline;
@@ -209,6 +223,76 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   text-transform: uppercase;
 }
 .links a::after { content: ' \2197'; }
+
+/* ==========================================================================
+   Toolkit — three tracks side by side
+   ========================================================================== */
+.tracks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.track__head {
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent);
+  padding-bottom: .6rem; margin-bottom: .9rem; border-bottom: 1px dashed var(--rule);
+}
+.taglist { display: flex; flex-wrap: wrap; gap: .4rem; }
+.taglist li {
+  font-family: var(--mono); font-size: .66rem; letter-spacing: .03em;
+  padding: .18rem .5rem; border: 1px solid var(--rule);
+  color: var(--ink-soft); background: var(--card);
+}
+
+/* ==========================================================================
+   Credentials — badge grid + LeetCode readout
+   ========================================================================== */
+.badges {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--rule); border: 1px solid var(--rule); margin-bottom: 2.5rem;
+}
+.badge {
+  display: flex; align-items: center; gap: .8rem;
+  background: var(--card); padding: 1rem; color: var(--ink);
+}
+.badge:hover { background: var(--paper); text-decoration: none; }
+.badge img { width: 40px; height: 40px; object-fit: contain; flex: none; }
+.badge b {
+  display: block; font-family: var(--body); font-weight: 600;
+  font-size: .84rem; line-height: 1.25;
+}
+.badge span {
+  display: block; margin-top: .3rem;
+  font-family: var(--mono); font-size: .63rem; letter-spacing: .06em;
+  color: var(--ink-soft);
+}
+.badge--more { align-items: center; }
+.badge--more b { color: var(--accent); }
+
+.coding { border: 1px solid var(--rule); background: var(--card); padding: 1.25rem 1.4rem; }
+.coding__head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  margin-bottom: 1rem;
+}
+.coding__head h3 { font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+.coding__head a {
+  font-family: var(--mono); font-size: .69rem; letter-spacing: .06em;
+}
+.coding__bar {
+  display: flex; height: 10px; overflow: hidden;
+  background: var(--rule); margin-bottom: 1.1rem;
+}
+.coding__bar .seg { display: block; height: 100%; }
+.seg--easy { background: var(--accent); }
+.seg--med  { background: var(--signal); }
+.seg--hard { background: var(--ink-soft); }
+.coding__stats { display: flex; flex-wrap: wrap; gap: 1.75rem; }
+.coding__stats div { min-width: 60px; }
+.coding__stats b {
+  display: block; font-family: var(--display); font-weight: 700; font-stretch: 118%;
+  font-size: 1.32rem; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums;
+}
+.coding__stats span {
+  display: block; margin-top: .38rem;
+  font-family: var(--mono); font-size: .6rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
 
 /* ==========================================================================
    Experience rows
@@ -281,6 +365,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .readout div:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
   .topnav { gap: 1rem; }
   .metrics { gap: 1.2rem; }
+  .tracks { grid-template-columns: 1fr; gap: 1.5rem; }
+  .badges { grid-template-columns: 1fr; }
 }
 @media (max-width: 420px) {
   .topnav a:not(:last-child) { display: none; }
