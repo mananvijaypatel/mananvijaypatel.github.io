@@ -323,22 +323,25 @@
         </a>
       </div>
 
+      <!-- Numbers below are a static fallback (last known-good) for no-JS or
+           an offline data/leetcode.json. The script at the end of <body>
+           overwrites them from that file, which a scheduled GitHub Action
+           refreshes daily from LeetCode's API — see .github/workflows/leetcode-stats.yml -->
       <div class="coding">
         <div class="coding__head">
           <h3>LeetCode</h3>
           <a href="https://leetcode.com/mananvp__59/" target="_blank" rel="noopener">mananvp__59 ↗</a>
         </div>
-        <!-- widths are pct of 445 total: easy 144 (32%), medium 225 (51%), hard 76 (17%) -->
-        <div class="coding__bar" role="img" aria-label="144 easy, 225 medium, 76 hard problems solved">
-          <span class="seg seg--easy" style="width:32%"></span>
-          <span class="seg seg--med" style="width:51%"></span>
-          <span class="seg seg--hard" style="width:17%"></span>
+        <div class="coding__bar" role="img" id="lc-bar" aria-label="144 easy, 225 medium, 76 hard problems solved">
+          <span class="seg seg--easy" id="lc-bar-easy" style="width:32%"></span>
+          <span class="seg seg--med" id="lc-bar-med" style="width:51%"></span>
+          <span class="seg seg--hard" id="lc-bar-hard" style="width:17%"></span>
         </div>
         <div class="coding__stats">
-          <div><b>445</b><span>Solved</span></div>
-          <div><b>144</b><span>Easy</span></div>
-          <div><b>225</b><span>Medium</span></div>
-          <div><b>76</b><span>Hard</span></div>
+          <div><b id="lc-solved">445</b><span>Solved</span></div>
+          <div><b id="lc-easy">144</b><span>Easy</span></div>
+          <div><b id="lc-medium">225</b><span>Medium</span></div>
+          <div><b id="lc-hard">76</b><span>Hard</span></div>
         </div>
       </div>
 
@@ -406,6 +409,28 @@
       });
     });
   });
+})();
+
+// LeetCode stats — hydrate from data/leetcode.json, refreshed daily by
+// .github/workflows/leetcode-stats.yml. Falls back to the static numbers
+// already in the markup if the fetch fails (e.g. viewing the file locally).
+(function () {
+  fetch('data/leetcode.json')
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (d) {
+      var total = d.solved || (d.easy + d.medium + d.hard);
+      if (!total) return;
+      document.getElementById('lc-solved').textContent = d.solved;
+      document.getElementById('lc-easy').textContent = d.easy;
+      document.getElementById('lc-medium').textContent = d.medium;
+      document.getElementById('lc-hard').textContent = d.hard;
+      document.getElementById('lc-bar-easy').style.width = (d.easy / total * 100) + '%';
+      document.getElementById('lc-bar-med').style.width = (d.medium / total * 100) + '%';
+      document.getElementById('lc-bar-hard').style.width = (d.hard / total * 100) + '%';
+      document.getElementById('lc-bar').setAttribute('aria-label',
+        d.easy + ' easy, ' + d.medium + ' medium, ' + d.hard + ' hard problems solved');
+    })
+    .catch(function () { /* keep static fallback already in the markup */ });
 })();
 </script>
 
